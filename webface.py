@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for, session
 import functools
-
+import math
 # from werkzeug.security import generate_password_hash, check_password_hash
 
 app = Flask(__name__)
@@ -29,7 +29,8 @@ def index():
 
 @app.route("/info/")
 def info():
-    return render_template("info.html")
+    pi = math.pi
+    return render_template("info.html", pi = pi)
 
 
 @app.route("/abc/")
@@ -39,10 +40,14 @@ def abc():
 
 @app.route("/text/")
 def text():
-    return """
+    return ""
+    
+@app.route("/skola/")
+def skola():
+    return render_template("skola.html") 
 
-<h1>Text</h1>
+"<h1>Text</h1>"
 
-<p>toto je text</p>
+"<p>toto je text</p>"
 
-"""
+""
